@@ -14,7 +14,22 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <table border='1' width=100%>
+                            <tr>
+                                <td>Error</td>
+                                <td>Descripcion</td>
+                                <td>Soluciones</td>
+                            </tr>
+                            @foreach($errors as $error)
+                            
+                            <tr>
+                                <td>{{$error->NombreError}}</td>
+                                <td>{{$error->Descripcion}}</td>
+                                <td>{{$error->Soluciones}}</td>
+                            </tr>
+                            @endforeach
+                            <br>
+                        </table>
                 </div>
             </div>
         </div>

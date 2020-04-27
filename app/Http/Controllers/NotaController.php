@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Error;
+use App\Nota;
 
-class ErroresController extends Controller
+class NotaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,8 @@ class ErroresController extends Controller
     {
         //
 
-        $errors = Error::all();
-        return view('home', ['errors' => $errors->toArray()]);
-        return view('libro.todos', );
+        $notas=Nota::all();
+        return view('notas.index', compact("notas"));
     }
 
     /**
@@ -30,7 +29,7 @@ class ErroresController extends Controller
     public function create()
     {
         //
-        return view("errores.create");
+        return view('notas.create');
     }
 
     /**
@@ -42,11 +41,14 @@ class ErroresController extends Controller
     public function store(Request $request)
     {
         //
-        $error = new Error;
-        $error->NombreError=$request->NombreError;
-        $error->Descripcion=$request->Descripcion;
-        $error->Soluciones=$request->Soluciones;
-        $error->save();
+        $nota = new Nota;
+
+        $nota->nombre=$request->nombre;
+        $nota->descripcion=$request->descripcion;
+        $nota->usuario = auth()->user()->email;
+
+        $nota->save();
+        return back()->with('mensaje', 'Nota Agregada!');
     }
 
     /**
@@ -58,6 +60,9 @@ class ErroresController extends Controller
     public function show($id)
     {
         //
+        $nota=Nota::findOrFail($id);
+
+        return view("notas.show", compact("nota"));
     }
 
     /**
@@ -69,6 +74,9 @@ class ErroresController extends Controller
     public function edit($id)
     {
         //
+        $nota=Nota::findOrFail($id);
+
+        return view("notas.edit", compact("nota"));
     }
 
     /**
@@ -81,7 +89,12 @@ class ErroresController extends Controller
     public function update(Request $request, $id)
     {
         //
-        return view("errores.update");
+        $nota=Nota::findOrFail($id);
+
+        $nota->update($request->all());
+
+        return redirect("/notas");
+
     }
 
     /**
@@ -93,6 +106,10 @@ class ErroresController extends Controller
     public function destroy($id)
     {
         //
-        return view("errores.delete");
+        $nota=Nota::findOrFail($id);
+
+        $nota->delete();
+
+        return redirect("/notas");
     }
 }

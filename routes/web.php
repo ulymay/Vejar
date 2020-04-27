@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('/errores', 'ErroresController');
 
+Route::resource('/notas', 'NotaController');
+
 Route::get('/', function () {
     return view('welcome');
 });
