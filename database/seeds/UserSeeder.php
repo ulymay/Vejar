@@ -1,0 +1,25 @@
+<?php
+
+use App\User;
+
+use Illuminate\Database\Seeder;
+
+use Illuminate\Support\Facades\DB;
+
+class UserSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        User::create([
+            'role_id' => '1',
+            'name' => 'Ulises',
+            'email' => 'ulymay@gmail.com',
+            'password' => bcrypt('ulymay89'),
+        ]);
+    }
+}

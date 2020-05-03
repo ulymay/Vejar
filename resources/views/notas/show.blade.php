@@ -19,6 +19,7 @@
                             <th scope="col">#</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Descripción</th>
+                            <th scope="col">Categoria</th>
                             <th scope="col">Acción</th>
                             </tr>
                         </thead>                        
@@ -26,6 +27,7 @@
                                 <th scope="row">{{ $nota->id }}</th>
                                 <td>{{ $nota->nombre }}</td>
                                 <td>{{ $nota->descripcion }}</td>
+                                <td>{{ $nota->category->title }}</td>
                                 <td>
                                    <a href="{{route('notas.edit', $nota)}}" class="btn btn-outline-info btn-sm">Editar</a>
 

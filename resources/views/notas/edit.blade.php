@@ -14,7 +14,7 @@
                 <div class="card-body">     
                   <form action="/notas/{{$nota->id}}" method="post">                 
                     @csrf
-
+                    <label for="">Nombre:</label>
                     <input
                       type="text"
                       name="nombre"
@@ -24,7 +24,7 @@
                     />
 
                     <input type="hidden" name="_method" value="PUT">
-
+                    <label for="">Descripcion:</label>
                     <input
                       type="text"
                       name="descripcion"
@@ -32,13 +32,21 @@
                       class="form-control mb-2" 
                       value="{{ $nota->descripcion }}"
                     />
-                    <button class="btn btn-outline-success btn-block" type="submit">Editar</button>
                     
+                    <label for="">Categoria:</label>
+                    <select name="category_id" id="inputCategory_id" required="required" class="form-control mb-2">
+                    <option value="">Seleccione una categoria</option>
+                    @foreach($categories as $category)
+                      <option value="{{ $category['id'] }}">{{ $category['title'] }}</option>
+                    @endforeach
+                    </select>
+
+                    <button class="btn btn-outline-success btn-block" type="submit">Editar</button>                  
+                    </form>
                     <form action="/notas/{{$nota->id}}" method="post">                 
                     @csrf
-                    <input type="hidden" name="_method" value="DELETE">
-                    <input class="btn btn-outline-danger btn-block" type="submit" value="Eliminar">
-                    </form>
+                      <input type="hidden" name="_method" value="DELETE">
+                      <input class="btn btn-outline-danger btn-block" type="submit" value="Eliminar">
                   </form>
                 </div>
             </div>

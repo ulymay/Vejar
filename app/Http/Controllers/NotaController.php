@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Nota;
 
+use App\Category;
+
 class NotaController extends Controller
 {
     /**
@@ -17,7 +19,7 @@ class NotaController extends Controller
     {
         //
 
-        $notas=Nota::all();
+        $notas=Nota::with('Category')->get();
         return view('notas.index', compact("notas"));
     }
 
@@ -29,7 +31,8 @@ class NotaController extends Controller
     public function create()
     {
         //
-        return view('notas.create');
+        $categories = Category::all();
+        return view('notas.create', compact('categories'));
     }
 
     /**
@@ -46,6 +49,7 @@ class NotaController extends Controller
         $nota->nombre=$request->nombre;
         $nota->descripcion=$request->descripcion;
         $nota->usuario = auth()->user()->email;
+        $nota->category_id=$request->category_id;
 
         $nota->save();
         return back()->with('mensaje', 'Nota Agregada!');
@@ -75,8 +79,8 @@ class NotaController extends Controller
     {
         //
         $nota=Nota::findOrFail($id);
-
-        return view("notas.edit", compact("nota"));
+        $categories = Category::all();
+        return view("notas.edit", compact("nota", "categories"));
     }
 
     /**
