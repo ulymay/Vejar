@@ -8,6 +8,8 @@ use App\Nota;
 
 use App\Category;
 
+use App\Solucion;
+
 class NotaController extends Controller
 {
     /**
@@ -64,7 +66,7 @@ class NotaController extends Controller
     public function show($id)
     {
         //
-        $nota=Nota::findOrFail($id);
+        $nota=Nota::with('Solucion')->findOrFail($id);
 
         return view("notas.show", compact("nota"));
     }
@@ -93,7 +95,7 @@ class NotaController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $nota=Nota::findOrFail($id);
+        $nota=Nota::with('Category')->findOrFail($id);
 
         $nota->update($request->all());
 

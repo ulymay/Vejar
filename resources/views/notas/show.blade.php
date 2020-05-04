@@ -34,6 +34,18 @@
                                 </td>
                             </tr>                            
                         <tbody>
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Solucion</th>
+                            </tr>
+                            @foreach ($nota->solucion as $solucion)
+                            <tr>
+                                <td>{{ $solucion->id }}</td>
+                                <td>{{ $solucion->descripcion }}</td>
+                            </tr>
+                            @endforeach
+                        </thead>
                             
                         </tbody>
                     </table>
