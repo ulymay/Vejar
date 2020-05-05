@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::resource('/errores', 'ErroresController');
+Route::resource('/categorias', 'CategoryController');
 
 Route::resource('/notas', 'NotaController');
 

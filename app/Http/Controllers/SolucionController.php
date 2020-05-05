@@ -4,13 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Nota;
-
-use App\Category;
-
-use App\Solucion;
-
-class NotaController extends Controller
+class SolucionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,9 +14,6 @@ class NotaController extends Controller
     public function index()
     {
         //
-
-        $notas=Nota::with('Category')->get();
-        return view('notas.index', compact("notas"));
     }
 
     /**
@@ -33,8 +24,6 @@ class NotaController extends Controller
     public function create()
     {
         //
-        $categories = Category::all();
-        return view('notas.create', compact('categories'));
     }
 
     /**
@@ -46,15 +35,6 @@ class NotaController extends Controller
     public function store(Request $request)
     {
         //
-        $nota = new Nota;
-
-        $nota->nombre=$request->nombre;
-        $nota->descripcion=$request->descripcion;
-        $nota->usuario = auth()->user()->email;
-        $nota->category_id=$request->category_id;
-
-        $nota->save();
-        return back()->with('mensaje', 'Nota Agregada!');
     }
 
     /**
@@ -66,9 +46,6 @@ class NotaController extends Controller
     public function show($id)
     {
         //
-        $nota=Nota::with('Solucion')->findOrFail($id);
-
-        return view("notas.show", compact("nota"));
     }
 
     /**
@@ -80,9 +57,6 @@ class NotaController extends Controller
     public function edit($id)
     {
         //
-        $nota=Nota::findOrFail($id);
-        $categories = Category::all();
-        return view("notas.edit", compact("nota", "categories"));
     }
 
     /**
@@ -95,12 +69,6 @@ class NotaController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $nota=Nota::with('Category')->findOrFail($id);
-
-        $nota->update($request->all());
-
-        return redirect("/notas");
-
     }
 
     /**
@@ -112,11 +80,5 @@ class NotaController extends Controller
     public function destroy($id)
     {
         //
-        $nota=Nota::findOrFail($id);
-
-        $nota->delete();
-
-        return redirect("/notas");
     }
-    
 }
