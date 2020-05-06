@@ -19,7 +19,11 @@ class CreateNotasTable extends Migration
             $table->foreign('category_id')->references('id')->on('categories');
             $table->string('nombre');
             $table->text('descripcion');
-            $table->string('usuario');            
+            $table->string('usuario');
+            $table->string('solucion');
+            $table->string('recomendaciones');
+            $table->string('guia');
+            $table->string('relacionado');
             $table->timestamps();
         });
     }

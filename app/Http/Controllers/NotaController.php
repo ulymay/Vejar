@@ -52,6 +52,10 @@ class NotaController extends Controller
         $nota->descripcion=$request->descripcion;
         $nota->usuario = auth()->user()->email;
         $nota->category_id=$request->category_id;
+        $nota->solucion=$request->solucion;
+        $nota->recomendaciones=$request->recomendaciones;
+        $nota->guia=$request->guia;
+        $nota->relacionado=$request->relacionado;
 
         $nota->save();
         return back()->with('mensaje', 'Nota Agregada!');

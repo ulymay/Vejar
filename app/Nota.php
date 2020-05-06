@@ -12,7 +12,7 @@ class Nota extends Model
 {
     //
     protected $fillable = [
-        'nombre', 'descripcion', 'category_id'
+        'nombre', 'descripcion', 'category_id', 'solucion', 'recomendaciones', 'guia', 'relacionado'
     ];
 
     public function category()

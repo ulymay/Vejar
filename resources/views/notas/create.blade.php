@@ -40,6 +40,39 @@
                     @endforeach
                     </select>
 
+                    <label for="">Solucion:</label>
+                    <input
+                      type="text"
+                      name="solucion"
+                      placeholder="Solucion"
+                      class="form-control mb-2" 
+                    />
+
+                    <label for="">Recomendaciones:</label>
+                    <input
+                      type="text"
+                      name="recomendaciones"
+                      placeholder="Recomendaciones"
+                      class="form-control mb-2" 
+                    />
+
+                    <label for="">Guia detallada:</label>
+                    <input
+                      type="text"
+                      name="guia"
+                      placeholder="Guia detallada"
+                      class="form-control mb-2" 
+                    />
+
+                    <label for="">Articulos relacionados:</label>
+                    <input
+                      type="text"
+                      name="relacionado"
+                      placeholder="Relacionado"
+                      class="form-control mb-2" 
+                    />
+
+
                     <button class="btn btn-primary btn-block" type="submit">Agregar</button>
                     <button class="btn btn-primary btn-block" type="reset" name="Borrar" value="borrar">Borrar</button>
                   </form>

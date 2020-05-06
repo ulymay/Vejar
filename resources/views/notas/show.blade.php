@@ -20,7 +20,6 @@
                             <th scope="col">Nombre</th>
                             <th scope="col">Descripción</th>
                             <th scope="col">Categoria</th>
-                            <th scope="col">Acción</th>
                             </tr>
                         </thead>                        
                             <tr>
@@ -28,26 +27,23 @@
                                 <td>{{ $nota->nombre }}</td>
                                 <td>{{ $nota->descripcion }}</td>
                                 <td>{{ $nota->category->title }}</td>
-                                <td>
-                                   <a href="{{route('notas.edit', $nota)}}" class="btn btn-outline-info btn-sm">Editar</a>
 
-                                </td>
-                            </tr>                            
-                        <tbody>
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
+
+                            </tr>    
+                            <thead>
                                 <th scope="col">Solucion</th>
-                            </tr>
-                            @foreach ($nota->solucion as $solucion)
+                                <th scope="col">Recomendaciones</th>
+                                <th scope="col">Guia</th>
+                                <th scope="col">Articulos relacionados</th>
+                                <th scope="col">Acción</th>
+                            </thead>   
                             <tr>
-                                <td>{{ $solucion->id }}</td>
-                                <td>{{ $solucion->descripcion }}</td>
-                            </tr>
-                            @endforeach
-                        </thead>
-                            
-                        </tbody>
+                                <td>{{ $nota->solucion }}</td>
+                                <td>{{ $nota->recomendaciones }}</td>
+                                <td>{{ $nota->guia }}</td>
+                                <td>{{ $nota->relacionado }}</td>
+                                <td><a href="{{route('notas.edit', $nota)}}" class="btn btn-outline-info btn-sm">Editar</a></td>
+                            </tr>                     
                     </table>
                 </div>
             </div>
