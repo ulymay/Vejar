@@ -14,7 +14,8 @@
                   @if ( session('mensaje') )
                     <div class="alert alert-success">{{ session('mensaje') }}</div>
                   @endif
-                  <form method="POST" action="/notas">
+           
+                  <form method="POST" action="/notas" enctype="multipart/form-data">
                     @csrf
 
                     <label for="">Nombre:</label>
@@ -72,10 +73,16 @@
                       class="form-control mb-2" 
                     />
 
-
+                    <label for="file">
+                      <input type="file" name="archivo"> 
+                    </label>
+                  
                     <button class="btn btn-primary btn-block" type="submit">Agregar</button>
                     <button class="btn btn-primary btn-block" type="reset" name="Borrar" value="borrar">Borrar</button>
                   </form>
+
+
+
                 </div>
             </div>
         </div>

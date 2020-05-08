@@ -24,6 +24,7 @@ class CreateNotasTable extends Migration
             $table->string('recomendaciones');
             $table->string('guia');
             $table->string('relacionado');
+            $table->string('urlDoc')->nullable();
             $table->timestamps();
         });
     }

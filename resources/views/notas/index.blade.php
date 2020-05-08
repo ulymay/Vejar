@@ -13,6 +13,14 @@
                 <div class="alert alert-success">{{ session('mensaje') }}</div>
               @endif
                 <div class="card-body">      
+
+                <nav class="navbar navbar-light float-right">
+                <form class="form-inline">
+                    <input name="buscar" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                </form>
+                </nav>
+
                     <table class="table">
                         <thead>
                             <tr>

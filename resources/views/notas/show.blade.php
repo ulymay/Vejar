@@ -16,34 +16,52 @@
                 <table class="table">
                         <thead>
                             <tr>
-                            <th scope="col">#</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Descripción</th>
-                            <th scope="col">Categoria</th>
                             </tr>
                         </thead>                        
                             <tr>
-                                <th scope="row">{{ $nota->id }}</th>
                                 <td>{{ $nota->nombre }}</td>
                                 <td>{{ $nota->descripcion }}</td>
-                                <td>{{ $nota->category->title }}</td>
-
-
-                            </tr>    
+                            </tr>     
                             <thead>
-                                <th scope="col">Solucion</th>
+                            <tr>
+                            <th scope="col">Categoria</th>
+                            <th scope="col">Solucion</th>
+                            </tr>
+                        </thead>                        
+                            <tr>
+                                <td>{{ $nota->category->title }}</td>
+                                <td>{{ $nota->solucion }}</td>
+                            </tr>   
+                            <thead>
+
                                 <th scope="col">Recomendaciones</th>
                                 <th scope="col">Guia</th>
-                                <th scope="col">Articulos relacionados</th>
-                                <th scope="col">Acción</th>
                             </thead>   
                             <tr>
-                                <td>{{ $nota->solucion }}</td>
+
                                 <td>{{ $nota->recomendaciones }}</td>
                                 <td>{{ $nota->guia }}</td>
+
+
+                            </tr>
+                            <thead>
+                                <th scope="col">Articulos relacionados</th>
+                                <th scope="col">Adjuntos</th>
+                            </thead>     
+                            <tr>
                                 <td>{{ $nota->relacionado }}</td>
+                                <td><a href=""></a></td>                                
+                            </tr>        
+                            <thead>
+                                <th scope="col">Acción</th>
+                                <th>Adjunto</th>
+                            </thead>
+                            <tr>
                                 <td><a href="{{route('notas.edit', $nota)}}" class="btn btn-outline-info btn-sm">Editar</a></td>
-                            </tr>                     
+                                <td><a href=""><img src="{{URL::asset('images/documento.jpg')}}" alt="imagen" width="50"></a></td>
+                            </tr>        
                     </table>
                 </div>
             </div>

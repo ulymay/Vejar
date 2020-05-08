@@ -10,6 +10,10 @@ use App\Category;
 
 use App\Solucion;
 
+use App\Http\Requests\CreatNotasRequest;
+
+use Storage;
+
 class NotaController extends Controller
 {
     /**
@@ -17,11 +21,12 @@ class NotaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $nombre = $request->get('buscar');
 
         $notas=Nota::with('Category')->get();
+        $notas=Nota::nombre($nombre)->with('Category')->get();
         return view('notas.index', compact("notas"));
     }
 
@@ -43,9 +48,11 @@ class NotaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreatNotasRequest $request)
     {
         //
+        //$this->validate($request, ['nombre'=>'required']);
+
         $nota = new Nota;
 
         $nota->nombre=$request->nombre;
@@ -57,6 +64,13 @@ class NotaController extends Controller
         $nota->guia=$request->guia;
         $nota->relacionado=$request->relacionado;
 
+        $doc = $request->file('archivo');
+        $doc_route = time().'_'.$doc->getClientOriginalName();
+
+        Storage::disk('adjuntos')->put($doc_route, file_get_contents($doc->getRealPath()));
+        
+        $nota->urlDoc=$doc_route;
+        
         $nota->save();
         return back()->with('mensaje', 'Nota Agregada!');
     }
@@ -71,7 +85,7 @@ class NotaController extends Controller
     {
         //
         $nota=Nota::with('Solucion')->findOrFail($id);
-
+        
         return view("notas.show", compact("nota"));
     }
 

@@ -43,6 +43,11 @@ return [
 
     'disks' => [
 
+        'adjuntos' => [
+            'driver' => 'local',
+            'root' => public_path('adjuntos'),
+        ],
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),

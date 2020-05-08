@@ -25,4 +25,12 @@ class Nota extends Model
         return $this->hasMany(Solucion::class);
     }
 
+    public function scopeNombre($query, $nombre)
+    {
+        if($nombre){
+            return $query->where('nombre', 'like', "%$nombre%");
+        }
+    }
+
+
 }
