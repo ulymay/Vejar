@@ -15,14 +15,14 @@
                 <div class="card-body">      
 
                 <nav class="navbar navbar-light float-right">
-                <form class="form-inline">
+                <form class="form-inline">        
                     <input name="buscar" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
                 </form>
                 </nav>
 
-                    <table class="table">
-                        <thead>
+                <table class="table table-striped">
+                        <thead class="thead-dark">
                             <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nombre</th>

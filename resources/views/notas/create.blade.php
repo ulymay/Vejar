@@ -18,6 +18,37 @@
                   <form method="POST" action="/notas" enctype="multipart/form-data">
                     @csrf
 
+                    @error('nombre')
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      El nombre es requerido
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    @enderror @if ($errors->has('descripcion'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      La descripción es requerida
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    @endif
+                    @error('solucion')
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      La solución es requerida
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    @enderror @if ($errors->has('recomendaciones'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      La recomendación es requerida
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    @endif
+
                     <label for="">Nombre:</label>
                     <input
                       type="text"

@@ -41,12 +41,50 @@
                     @endforeach
                     </select>
 
-                    <button class="btn btn-outline-success btn-block" type="submit">Editar</button>                  
+                    <label for="">Solución:</label>
+                    <input
+                      type="text"
+                      name="solucion"
+                      placeholder="Solución"
+                      class="form-control mb-2" 
+                      value="{{ $nota->solucion }}"
+                    />
+
+                    <label for="">Recomendaciones:</label>
+                    <input
+                      type="text"
+                      name="recomendaciones"
+                      placeholder="Recomendaciones"
+                      class="form-control mb-2" 
+                      value="{{ $nota->recomendaciones }}"
+                    />
+
+                    <label for="">Guia:</label>
+                    <input
+                      type="text"
+                      name="guia"
+                      placeholder="Guia"
+                      class="form-control mb-2" 
+                      value="{{ $nota->guia }}"
+                    />
+
+                    <label for="">Relacionado:</label>
+                    <input
+                      type="text"
+                      name="relacionado"
+                      placeholder="Relacionado"
+                      class="form-control mb-2" 
+                      value="{{ $nota->relacionado }}"
+                    />
+
+                    <hr>
+                    <button class="btn btn-success" type="submit">Editar</button>                  
                     </form>
-                    <form action="/notas/{{$nota->id}}" method="post">                 
+                    <hr>
+                    <form action="/notas/{{$nota->id}}" method="post" class="d-inline">                 
                     @csrf
                       <input type="hidden" name="_method" value="DELETE">
-                      <input class="btn btn-outline-danger btn-block" type="submit" value="Eliminar">
+                      <button class="btn btn-danger" type="submit">Eliminar</button>  
                   </form>
                 </div>
             </div>

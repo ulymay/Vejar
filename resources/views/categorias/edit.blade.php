@@ -25,12 +25,13 @@
 
                     <input type="hidden" name="_method" value="PUT">
 
-                    <button class="btn btn-outline-success btn-block" type="submit">Editar</button>                  
+                    <button class="btn btn-success" type="submit">Editar</button>                  
                     </form>
-                    <form action="/categorias/{{$categoria->id}}" method="post">                 
+                    <hr>
+                    <form action="/categorias/{{$categoria->id}}" method="post" class="d-inline">                 
                     @csrf
                       <input type="hidden" name="_method" value="DELETE">
-                      <input class="btn btn-outline-danger btn-block" type="submit" value="Eliminar">
+                      <button class="btn btn-danger" type="submit">Eliminar</button>   
                   </form>
                 </div>
             </div>

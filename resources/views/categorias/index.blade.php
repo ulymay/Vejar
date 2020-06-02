@@ -28,7 +28,7 @@
                                 <td>{{ $categoria->title }}</td>
                                 <td>
                                 
-                                   <a href="{{route('categorias.edit', $categoria)}}" class="btn btn-outline-info btn-sm">Editar</a>                            
+                                   <a href="{{route('categorias.edit', $categoria)}}" class="btn btn-info btn-sm">Editar</a>                            
 
                                 </td>
                             </tr>

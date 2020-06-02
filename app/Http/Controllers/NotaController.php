@@ -8,6 +8,8 @@ use App\Nota;
 
 use App\Category;
 
+use App\SubCategory;
+
 use App\Solucion;
 
 use App\Http\Requests\CreatNotasRequest;
@@ -52,7 +54,13 @@ class NotaController extends Controller
     {
         //
         //$this->validate($request, ['nombre'=>'required']);
-
+        $request->validate([
+            'nombre'=> 'required',
+            'descripcion' => 'required',
+            'solucion' => 'required',
+            'recomendaciones' => 'required'
+        ]);
+        
         $nota = new Nota;
 
         $nota->nombre=$request->nombre;
@@ -65,11 +73,15 @@ class NotaController extends Controller
         $nota->relacionado=$request->relacionado;
 
         $doc = $request->file('archivo');
+        
+        if($doc){
+            
         $doc_route = time().'_'.$doc->getClientOriginalName();
 
         Storage::disk('adjuntos')->put($doc_route, file_get_contents($doc->getRealPath()));
         
         $nota->urlDoc=$doc_route;
+        }
         
         $nota->save();
         return back()->with('mensaje', 'Nota Agregada!');

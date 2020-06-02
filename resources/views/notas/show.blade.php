@@ -27,7 +27,7 @@
                             <thead>
                             <tr>
                             <th scope="col">Categoria</th>
-                            <th scope="col">Solucion</th>
+                            <th scope="col">Solución</th>
                             </tr>
                         </thead>                        
                             <tr>
@@ -52,15 +52,15 @@
                             </thead>     
                             <tr>
                                 <td>{{ $nota->relacionado }}</td>
-                                <td><a href=""></a></td>                                
+                                <td><a href="/download"><img src="{{URL::asset('images/documento.jpg')}}" alt="imagen" width="50"></a></td>                             
                             </tr>        
                             <thead>
                                 <th scope="col">Acción</th>
-                                <th>Adjunto</th>
+                                <th></th>
                             </thead>
                             <tr>
                                 <td><a href="{{route('notas.edit', $nota)}}" class="btn btn-outline-info btn-sm">Editar</a></td>
-                                <td><a href=""><img src="{{URL::asset('images/documento.jpg')}}" alt="imagen" width="50"></a></td>
+                                <td></td>
                             </tr>        
                     </table>
                 </div>

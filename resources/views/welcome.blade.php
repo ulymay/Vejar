@@ -93,13 +93,11 @@
                     <div class="principal top-right links">
                         @auth
                            Usuario Logeado 
-                        <a href="{{ url('/notas') }}">Inicio</a>
+                        <a href="{{ url('/notas') }}">G.B.C.</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
+
                     @endauth
                     </div>
             @endif
